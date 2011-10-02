@@ -7,3 +7,5 @@
   <li>Sets key value associated data a bit slower than using a JavaScript object</li>
 </ul>
 <i>Benchmarked using 1 million string keys; with each one of them associated to 1 integer value</i>
+<br />
+<i>Tested on Chrome (pending for the rest of the browsers)</i>
