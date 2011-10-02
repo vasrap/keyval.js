@@ -1,8 +1,4 @@
 function keyval () {
-	this.Node = function (val) {
-		this.val = val;
-	};
-
 	this.head = null; this.tail = null;
 	this.length = 0; this.keys = {};
 	this.pos = null;
@@ -10,7 +6,7 @@ function keyval () {
 	this.setKey = function (key, val) {
 		if (this.keys[key]) return;
 
-		var node = new this.Node(val);
+		var node = {val: val};
 		
 		if (this.length === 0) {
 			this.head = node;
@@ -64,7 +60,7 @@ function keyval () {
 
 	this.empty = function () {
 		this.keys = {};
-		this.head = null;
-		length = 0;
+		this.head = this.tail = null;
+		this.length = 0;
 	};
 }
