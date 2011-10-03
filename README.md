@@ -21,6 +21,9 @@ while (tmp = kv.itr()) {
   foo = tmp.v;
 }
 
+// Get the number of key value pairs set.
+var length = kv.len;
+
 // Empty the key value pair pool.
 kv.empty();
 </pre>
