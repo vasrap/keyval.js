@@ -1,4 +1,4 @@
-<h1>keyval.js ALPHA</h1>
+<h1>keyval.js BETA</h1>
 <h4>a fast key value pair library</h4>
 <h3>USAGE</h3>
 <pre>
