@@ -1,4 +1,29 @@
 ~~~~ keyval.js ALPHA ~~~~
+<h4>Usage</h4>
+<pre>
+// Instantiate keyval.
+var kv = new keyval();
+
+// Add 1 million key value pairs.
+for (var i = 1; i &lt;= 1000000; i++) {
+  // 1st arg is the key, second is the value.
+  kv.set(i.toString(), i);
+}
+
+// Delete a key value pair.
+kv.del('100000');
+
+// Iterate over the key value pairs.
+var tmp, foo;
+while (tmp = kv.itr()) {
+  // Assign the value to foo.
+  foo = tmp.v;
+}
+
+// Empty the key value pair pool.
+kv.empty();
+</pre>
+<h4>Features</h4>
 <ul>
   <li>Iterates key value associated data 20 times faster than using a JavaScript object</li>
   <li>Finds a specified key in 0ms</li>
