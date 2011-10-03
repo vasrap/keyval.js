@@ -26,7 +26,7 @@ kv.empty();
 </pre>
 <h3>FEATURES</h3>
 <ul>
-  <li>Iterates key value associated data 20 times faster than using a JavaScript object</li>
+  <li>Iterates key value associated data faster than using a JavaScript object (~10x on Chrome, ~5x on Firefox)</li>
   <li>Finds a specified key in 0ms</li>
   <li>Deletes a specified key in 0ms</li>
   <li>Provides key count in 0ms</li>
