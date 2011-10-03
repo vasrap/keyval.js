@@ -1,5 +1,6 @@
-~~~~ keyval.js ALPHA ~~~~
-<h4>Usage</h4>
+<h1>keyval.js ALPHA</h1>
+<h4>a fast key value pair library</h4>
+<h3>USAGE</h3>
 <pre>
 // Instantiate keyval.
 var kv = new keyval();
@@ -23,7 +24,7 @@ while (tmp = kv.itr()) {
 // Empty the key value pair pool.
 kv.empty();
 </pre>
-<h4>Features</h4>
+<h3>FEATURES</h3>
 <ul>
   <li>Iterates key value associated data 20 times faster than using a JavaScript object</li>
   <li>Finds a specified key in 0ms</li>
