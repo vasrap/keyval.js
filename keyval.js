@@ -1,66 +1,68 @@
 function keyval () {
-	this.head = null; this.tail = null;
-	this.length = 0; this.keys = {};
-	this.pos = null;
+	"use strict";
 
-	this.setKey = function (key, val) {
-		if (this.keys[key]) return;
+	var _head, _tail, _pos;
+	var _keys = {};
+	this.len = 0;
 
-		var node = {val: val};
-		
-		if (this.length === 0) {
-			this.head = node;
-			this.tail = node;
-			this.pos = node;
-		} else {
-			node.prev = this.tail;
-			this.tail.next = node;
-			this.tail = node;
+	this.set = function (k, v) {
+		if (! _keys[k]) {
+			var node = {v: v};
+			
+			if (this.len === 0) {
+				_head = node;
+				_tail = node;
+				_pos = node;
+			} else {
+				node.p = _tail;
+				_tail.n = node;
+				_tail = node;
+			}
+			_keys[k] = node;
+			
+			this.len++;
 		}
-		this.keys[key] = node;
-		
-		this.length++;
 	};
 
-	this.deleteKey = function (key) {
-		var el = null;
-		tmp = this.keys[key];
-
+	this.del = function (k) {
+		var el;
+		var tmp = _keys[k];
+		
 		if (tmp) {
-			el = tmp.val;
-			var prev = tmp.prev;
-			var next = tmp.next;
+			el = tmp.v;
+			var prev = tmp.p;
+			var next = tmp.n;
 
-			if (prev) prev.next = next;
-			if (next) next.prev = prev;
+			if (prev) prev.n = next;
+			if (next) next.p = prev;
 			
-			delete this.keys[key];
-			this.length--;
+			delete _keys[k];
+			this.len--;
 		}
-
+		
 		return el;
 	};
 
-	this.getKey = function (key) {
-		return this.keys[key];
+	this.get = function (k) {
+		return _keys[k];
 	};
 
-	this.iterate = function () {
-		if (this.pos) {
-			var tmp = this.pos.val;
-			this.pos = this.pos.next;
-
+	this.itr = function () {
+		if (_pos) {
+			var tmp = _pos.v;
+			_pos = _pos.n;
+			
 			return tmp;
 		} else {
-			this.pos = this.head;
-
-			return null;
+			_pos = _head;
+			
+			return;
 		}
 	};
 
 	this.empty = function () {
-		this.keys = {};
-		this.head = this.tail = null;
-		this.length = 0;
+		_keys = {};
+		_head = _tail = null;
+		this.len = 0;
 	};
 }
