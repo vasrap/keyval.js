@@ -34,4 +34,4 @@ kv.empty();
 </ul>
 <i>Benchmarked using 1 million string keys; with each one of them associated to 1 integer value</i>
 <br />
-<i>Tested on Chrome (pending for the rest of the browsers)</i>
+<i>Tested on Chrome, Firefox (pending for the rest of the browsers)</i>
