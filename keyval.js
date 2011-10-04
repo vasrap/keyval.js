@@ -10,9 +10,8 @@ function keyval () {
 			var node = {v: v};
 			
 			if (this.len === 0) {
-				_head = node;
-				_tail = node;
-				_pos = node;
+				_head = _tail = node;
+				this.rwd();
 			} else {
 				node.p = _tail;
 				_tail.n = node;
@@ -25,22 +24,20 @@ function keyval () {
 	};
 
 	this.del = function (k) {
-		var el;
-		var tmp = _keys[k];
+		var v;
+		var node = _keys[k];
 		
-		if (tmp) {
-			el = tmp.v;
-			var prev = tmp.p;
-			var next = tmp.n;
+		if (node) {
+			v = node.v;
 
-			if (prev) prev.n = next;
-			if (next) next.p = prev;
+			if (node.p) node.p.n = node.n;
+			if (node.n) node.n.p = node.p;
 			
-			delete _keys[k];
+			_keys[k] = null;
 			this.len--;
 		}
 		
-		return el;
+		return v;
 	};
 
 	this.get = function (k) {
@@ -48,21 +45,16 @@ function keyval () {
 	};
 
 	this.itr = function () {
-		if (_pos) {
-			var tmp = _pos.v;
-			_pos = _pos.n;
-			
-			return tmp;
-		} else {
-			_pos = _head;
-			
-			return;
-		}
+		return _pos = _pos.n;
 	};
+
+	this.rwd = function () {
+		_pos = {n: _head};
+	}
 
 	this.empty = function () {
 		_keys = {};
-		_head = _tail = null;
+		_head = _tail = _pos = null;
 		this.len = 0;
 	};
 }

@@ -21,6 +21,9 @@ while (tmp = kv.itr()) {
   foo = tmp.v;
 }
 
+// Rewind the iterator to the first key.
+kv.rwd();
+
 // Get the number of key value pairs set.
 var length = kv.len;
 

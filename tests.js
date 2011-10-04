@@ -16,15 +16,22 @@ var tests = {
 
 		// Iterate over the key value pairs.
 		var tmp, cnt = 0;
-		while (tmp = kv.itr()) cnt++;
+		kv.rwd(); while (tmp = kv.itr()) cnt++;
 
 		// Test if the above actions resulted to -
 		// the expected results.
-		if (cnt === 50 &&
+		if ((cnt === 50 &&
 			kv.len === 50 &&
 			kv.get("49").n.v === 51 &&
-			kv.get("49").p.v === 47)
+			kv.get("49").p.v === 47) === false)
 
-			return true; else return false;
+			return false;
+		
+		// Test delete head.
+		var foo;
+		while (--i > 0) {
+			foo = kv.del(i.toString());
+		}
+		if (foo === 1) return true; else return false;
 	}
 }
